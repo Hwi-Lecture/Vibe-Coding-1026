@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>엑셀 취합 웹앱</title>
+<style>
+  :root {
+    --bg: #f4f6f9; --card: #fff; --ink: #1c2430; --muted: #6b7686; --line: #dfe4ec;
+    --brand: #1f4e78; --brand-soft: #e8f0f8; --ok: #1d7a46; --ok-soft: #e6f4ec;
+    --warn: #a15c00; --warn-soft: #fff3e0; --err: #b3261e; --err-soft: #fdecea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181f; --card: #1c222c; --ink: #e8ecf2; --muted: #96a1b3; --line: #2e3745;
+      --brand: #6aa6dc; --brand-soft: #1f2d3d; --ok: #5cc88a; --ok-soft: #183226;
+      --warn: #f0b35a; --warn-soft: #3a2c14; --err: #ff8a80; --err-soft: #3a1c1a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; line-height: 1.55; }
+  header { padding: 28px 16px 8px; max-width: 980px; margin: 0 auto; }
+  header h1 { margin: 0; font-size: 24px; }
+  header p { margin: 4px 0 0; color: var(--muted); }
+  main { max-width: 980px; margin: 0 auto; padding: 16px; display: grid; gap: 16px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 14px; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+  .num { width: 26px; height: 26px; border-radius: 50%; background: var(--brand); color: #fff;
+    display: inline-grid; place-items: center; font-size: 13px; }
+  .drop { border: 2px dashed var(--line); border-radius: 10px; padding: 28px 16px; text-align: center;
+    color: var(--muted); cursor: pointer; transition: .15s; }
+  .drop.over, .drop:hover { border-color: var(--brand); background: var(--brand-soft); color: var(--ink); }
+  .drop strong { color: var(--ink); }
+  ul.files { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  ul.files li { background: var(--brand-soft); border-radius: 999px; padding: 4px 12px; font-size: 13px;
+    display: flex; gap: 8px; align-items: center; }
+  ul.files button { all: unset; cursor: pointer; color: var(--muted); }
+  button.primary, a.btn { background: var(--brand); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px;
+    font-size: 15px; cursor: pointer; text-decoration: none; display: inline-block; font-family: inherit; }
+  button.primary:disabled { opacity: .45; cursor: not-allowed; }
+  a.btn.ghost { background: transparent; color: var(--brand); border: 1px solid var(--brand); }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .stat { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .stat small { color: var(--muted); display: block; }
+  .stat b { font-size: 18px; white-space: nowrap; }
+  .stat.warn { background: var(--warn-soft); border-color: transparent; }
+  .stat.warn b { color: var(--warn); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 8px; }
+  th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  th { background: var(--brand-soft); font-weight: 600; }
+  tr.total td { font-weight: 700; }
+  .scroll { overflow-x: auto; }
+  h3 { font-size: 14px; margin: 18px 0 2px; color: var(--muted); font-weight: 600; }
+  td.l, th.l { text-align: left; white-space: normal; }
+  .tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--warn-soft); color: var(--warn); }
+  label { display: block; font-size: 13px; color: var(--muted); margin: 12px 0 4px; }
+  input[type=text], textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px;
+    background: var(--card); color: var(--ink); font: inherit; }
+  textarea { min-height: 220px; resize: vertical; }
+  .note { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .msg { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 14px; display: none; }
+  .msg.err { display: block; background: var(--err-soft); color: var(--err); }
+  .msg.ok { display: block; background: var(--ok-soft); color: var(--ok); }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>엑셀 취합 웹앱</h1>
+  <p>지점별 엑셀 파일을 올리면 하나로 취합하고, 결과를 메일로 보낼 수 있습니다.</p>
+</header>
+<main>
+  <section>
+    <h2><span class="num">1</span>파일 올리기</h2>
+    <div class="drop" id="drop">
+      <strong>엑셀 파일을 여기에 끌어다 놓거나 클릭해서 선택하세요</strong><br>
+      <span>.xlsx 파일 여러 개 선택 가능</span>
+      <input type="file" id="picker" accept=".xlsx" multiple hidden>
+    </div>
+    <ul class="files" id="fileList"></ul>
+    <div class="row">
+      <button class="primary" id="mergeBtn" disabled>취합하기</button>
+    </div>
+    <div class="msg" id="mergeMsg"></div>
+  </section>
+
+  <section id="resultSec" class="hidden">
+    <h2><span class="num">2</span>취합 결과</h2>
+    <div class="stats" id="stats"></div>
+    <h3>지점별 합계</h3>
+    <div class="scroll"><table id="branchTable"></table></div>
+    <h3>제품군별 합계</h3>
+    <div class="scroll"><table id="productTable"></table></div>
+    <h3>검증리포트 <span class="tag" id="reportCount"></span></h3>
+    <div class="scroll"><table id="reportTable"></table></div>
+    <div class="row">
+      <a class="btn ghost" id="downloadBtn" href="#">정리결과.xlsx 다운로드</a>
+    </div>
+  </section>
+
+  <section id="mailSec" class="hidden">
+    <h2><span class="num">3</span>메일로 보내기</h2>
+    <label for="to">받는 사람 (여러 명은 쉼표로 구분)</label>
+    <input type="text" id="to" value="{{ sender }}" placeholder="example@gmail.com">
+    <label for="subject">제목</label>
+    <input type="text" id="subject">
+    <label for="body">본문</label>
+    <textarea id="body"></textarea>
+    <div class="note">정리결과.xlsx가 첨부되어 {{ sender or '.env의 EMAIL_ADDRESS' }} 계정으로 발송됩니다.</div>
+    <div class="row">
+      <button class="primary" id="sendBtn">메일 보내기</button>
+    </div>
+    <div class="msg" id="sendMsg"></div>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let selected = [];
+let token = null;
+
+const fmt = (n) => Number(n).toLocaleString('ko-KR');
+
+function showMsg(el, kind, text) { el.className = 'msg ' + kind; el.textContent = text; }
+function clearMsg(el) { el.className = 'msg'; el.textContent = ''; }
+
+function renderFiles() {
+  $('fileList').innerHTML = '';
+  selected.forEach((f, i) => {
+    const li = document.createElement('li');
+    li.textContent = f.name + ' ';
+    const x = document.createElement('button');
+    x.textContent = '✕';
+    x.onclick = () => { selected.splice(i, 1); renderFiles(); };
+    li.appendChild(x);
+    $('fileList').appendChild(li);
+  });
+  $('mergeBtn').disabled = selected.length === 0;
+}
+
+function addFiles(list) {
+  for (const f of list) {
+    if (!f.name.toLowerCase().endsWith('.xlsx')) continue;
+    if (!selected.some((s) => s.name === f.name)) selected.push(f);
+  }
+  renderFiles();
+}
+
+$('drop').onclick = () => $('picker').click();
+$('picker').onchange = (e) => { addFiles(e.target.files); e.target.value = ''; };
+['dragover', 'dragenter'].forEach((ev) => $('drop').addEventListener(ev, (e) => { e.preventDefault(); $('drop').classList.add('over'); }));
+['dragleave', 'drop'].forEach((ev) => $('drop').addEventListener(ev, (e) => { e.preventDefault(); $('drop').classList.remove('over'); }));
+$('drop').addEventListener('drop', (e) => addFiles(e.dataTransfer.files));
+
+function table(el, headers, rows, opts = {}) {
+  const head = '<tr>' + headers.map((h, i) => `<th class="${opts.left && opts.left.includes(i) ? 'l' : ''}">${h}</th>`).join('') + '</tr>';
+  const body = rows.map((r, ri) => {
+    const total = opts.totalLast && ri === rows.length - 1 ? ' class="total"' : '';
+    return `<tr${total}>` + r.map((c, i) => `<td class="${opts.left && opts.left.includes(i) ? 'l' : ''}">${c}</td>`).join('') + '</tr>';
+  }).join('');
+  el.innerHTML = head + body;
+}
+
+function esc(s) { return String(s ?? '').replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])); }
+
+function render(data) {
+  const s = data.stats;
+  const cards = [
+    ['원본 데이터 행', s['원본 데이터 행'], ''], ['정리결과 행', s['정리결과 행'], ''],
+    ['총 수량', fmt(s['총 수량']) + '대', ''], ['총 판매금액', fmt(s['총 판매금액']) + '원', ''],
+    ['제외한 행', s['제외한 행'], 'warn'], ['금액 수정 행', s['금액 수정 행'], 'warn'],
+  ];
+  $('stats').innerHTML = cards.map(([k, v, c]) => `<div class="stat ${c}"><small>${k}</small><b>${v}</b></div>`).join('');
+
+  const totals = { c: 0, q: 0, a: 0 };
+  const brows = data.branch_rows.map((r) => {
+    totals.c += r['합계 건수']; totals.q += r['합계 수량']; totals.a += r['합계 판매금액'];
+    return [r['지점'], r['합계 건수'], fmt(r['합계 수량']), fmt(r['합계 판매금액'])];
+  });
+  brows.push(['합계', totals.c, fmt(totals.q), fmt(totals.a)]);
+  table($('branchTable'), ['지점', '건수', '수량', '판매금액'], brows, { totalLast: true });
+
+  const prows = data.product_rows.map((r) => [r['제품군'], r['건수'], fmt(r['수량']), fmt(r['판매금액'])]);
+  prows.push(['합계', prows.reduce((a, r) => a + r[1], 0), fmt(data.product_rows.reduce((a, r) => a + r['수량'], 0)), fmt(data.product_rows.reduce((a, r) => a + r['판매금액'], 0))]);
+  table($('productTable'), ['제품군', '건수', '수량', '판매금액'], prows, { totalLast: true });
+
+  $('reportCount').textContent = data.report.length + '건';
+  table($('reportTable'), ['출처파일', '시트', '행', '처리', '사유', '내용'],
+    data.report.map((r) => [esc(r['출처파일']), esc(r['출처시트']), r['엑셀 행'], esc(r['처리']), esc(r['사유']), esc(r['내용'])]),
+    { left: [0, 1, 3, 4, 5] });
+
+  $('downloadBtn').href = '/api/download/' + data.token;
+  $('subject').value = data.mail_subject;
+  $('body').value = data.mail_body;
+  $('resultSec').classList.remove('hidden');
+  $('mailSec').classList.remove('hidden');
+  clearMsg($('sendMsg'));
+}
+
+$('mergeBtn').onclick = async () => {
+  clearMsg($('mergeMsg'));
+  $('mergeBtn').disabled = true;
+  $('mergeBtn').textContent = '취합 중...';
+  const fd = new FormData();
+  selected.forEach((f) => fd.append('files', f));
+  try {
+    const res = await fetch('/api/merge', { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '취합에 실패했습니다.');
+    token = data.token;
+    render(data);
+    $('resultSec').scrollIntoView({ behavior: 'smooth' });
+  } catch (err) {
+    showMsg($('mergeMsg'), 'err', err.message);
+  } finally {
+    $('mergeBtn').disabled = selected.length === 0;
+    $('mergeBtn').textContent = '취합하기';
+  }
+};
+
+$('sendBtn').onclick = async () => {
+  clearMsg($('sendMsg'));
+  $('sendBtn').disabled = true;
+  $('sendBtn').textContent = '보내는 중...';
+  try {
+    const res = await fetch('/api/send', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token, to: $('to').value, subject: $('subject').value, body: $('body').value }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || '메일 전송에 실패했습니다.');
+    showMsg($('sendMsg'), 'ok', data.to.join(', ') + ' 로 메일을 보냈습니다.');
+  } catch (err) {
+    showMsg($('sendMsg'), 'err', err.message);
+  } finally {
+    $('sendBtn').disabled = false;
+    $('sendBtn').textContent = '메일 보내기';
+  }
+};
+</script>
+</body>
+</html>
