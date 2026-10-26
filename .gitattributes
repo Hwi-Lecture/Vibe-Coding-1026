@@ -1,0 +1,2 @@
+*.bat text eol=crlf
+**/news_rss.xml -text -whitespace

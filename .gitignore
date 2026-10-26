@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+!.env.sample
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+**/storage/
+4. 데이터수집과대시보드/**/~$*
+4. 데이터수집과대시보드/**/zNex~$*

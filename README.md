@@ -1,18 +1,46 @@
-# Vibe-Coding-1026 실습 준비
+# 바이브코딩 실습 파일
 
-바이브코딩 실습을 위한 준비 자료입니다.
-
-## 관련 자료
-
-- [강의 PPT (Google Slides)](https://docs.google.com/presentation/d/1cpYGUVx7zuAMg-BQe7Oc3R3HbKjN6gPfGTBJiNDmJWU/edit?usp=sharing)
-- [실습 안내 (Notion)](https://app.notion.com/p/AI-3fab39501c38802fab4ec1061fa0eb9a)
+[강의 PPT](https://docs.google.com/presentation/d/1cpYGUVx7zuAMg-BQe7Oc3R3HbKjN6gPfGTBJiNDmJWU/edit?usp=sharing) · [실습 안내](https://app.notion.com/p/AI-3fab39501c38802fab4ec1061fa0eb9a)
 
 ## 환경 설치
 
-Windows에서 `install.bat`을 더블클릭하면 Python과 필요한 패키지(`flask`, `openpyxl`, `pandas`, `google-genai`)가 자동으로 설치됩니다.
+압축을 푼 뒤 Windows에서 이 폴더의 `install.bat`을 더블클릭합니다. Python, Git과 `requirements.txt`의 패키지를 설치합니다. Google Antigravity는 노션 안내에 따라 별도로 설치합니다.
+
+Python 3.12 이상이 있으면 패키지만 설치할 수도 있습니다.
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+설치 후 Python이나 Git이 보이지 않으면 Antigravity를 종료한 뒤 다시 엽니다.
 
 ## 폴더 구성
 
-- `1. 에이전트실습/` : 파일 정리, 엑셀 정리 실습 자료
-- `2. 엑셀취합웹앱자료/` : 엑셀 취합 웹앱 실습 자료
-- `3. 대시보드_참고용/` : 대시보드 참고 자료
+| 폴더·파일 | 내용 |
+| --- | --- |
+| `1. 에이전트실습/1. 파일정리` | 분류할 업무 파일 48개 |
+| `1. 에이전트실습/1. 파일정리백업` | 파일정리 원본 ZIP |
+| `1. 에이전트실습/2. 엑셀정리` | 청주·전주 판매 자료와 2분기 취합 예시 |
+| `1. 에이전트실습/2. 엑셀정리정답` | 3분기 취합 참고 정답 |
+| `2. 뉴스브리핑` | 단계별 체크포인트와 실행 안내 |
+| `3. 사용설명서챗봇` | PDF, 추출 원문, 검색 목록, 테스트 질문, 체크포인트 |
+| `4. 데이터수집과대시보드` | 오피넷 설정 예시와 수집·보고서·메일·대시보드 체크포인트 |
+| `업무자동화_PoC_계획서_양식.docx` | 최종 프로젝트 계획서 |
+
+## 체크포인트로 이어가기
+
+각 실습의 `checkpoint` 안에서 원하는 단계 폴더를 엽니다. 파일과 하위 폴더를 함께 새 작업 폴더에 복사해서 이어갈 수도 있습니다. 실행 명령은 각 실습의 README를 확인합니다.
+
+- 뉴스: RSS 수집 → 관심 뉴스·화면 → AI 브리핑
+- 챗봇: 단순 대화 → 검색 결과 확인 → 원문 근거 답변
+- 유가: 수집 → 엑셀 → 메일 → 정적 화면 → 동적 화면
+
+뉴스 실습은 `checkpoint` 안의 원하는 단계 폴더를 열어 시작합니다.
+
+## 설정 파일
+
+예제의 `.env.example` 또는 `.env.sample`을 복사해 `.env`로 만들고 강사가 제공한 설정을 입력합니다. 예제별로 사용하는 설정 이름이 다르므로 해당 README를 확인합니다. `.env`는 공유하지 않습니다.
+
+## 파일정리 다시 시작하기
+
+원본 ZIP을 새 빈 폴더에 압축 해제하고 그 안의 작업 폴더를 엽니다. 정리한 폴더에 덮어 풀면 옮겨진 파일이 남아 중복될 수 있습니다. 엑셀 실습은 원본을 남기고 새 결과 파일을 만듭니다.

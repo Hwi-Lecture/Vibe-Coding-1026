@@ -1,4 +1,10 @@
-flask
+fastapi
+uvicorn
+python-multipart
+jinja2
 openpyxl
 pandas
 google-genai
+streamlit
+openai
+filelock

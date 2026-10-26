@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>에너지 뉴스 브리핑 · 실습 완성 예시</title>
+<style>
+:root{--ink:#192d36;--muted:#586e78;--teal:#087b70;--line:#dce5e7;--paper:#fff;--bg:#f3f6f6}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.65 'Malgun Gothic','Apple SD Gothic Neo',sans-serif}button,input{font:inherit}button,a,input{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #dc9d22;outline-offset:3px}a{color:var(--teal)}.wrap{max-width:1180px;margin:auto;padding:34px 28px 60px}.top{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:20px}.brand{font-weight:800;letter-spacing:.03em}.brand i{display:inline-block;background:var(--teal);width:12px;height:12px;border-radius:3px;margin-right:10px}.edition{font-size:12px;color:var(--muted)}header{padding:38px 0 27px}.eyebrow{font-size:12px;color:var(--teal);font-weight:800;letter-spacing:.12em}h1{font-size:clamp(28px,4vw,43px);letter-spacing:-.05em;margin:9px 0 12px;line-height:1.3}header p{color:var(--muted);margin:0}.stats{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:14px;margin-bottom:24px}.stat{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px 24px}.stat span{display:block;font-size:12px;color:var(--muted)}.stat strong{font-size:29px;letter-spacing:-.03em}.stat.time strong{font-size:18px;display:block;margin-top:8px}.panel{border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:24px;margin-bottom:22px}.panel h2{margin:0 0 5px;font-size:18px}.hint{font-size:12px;color:var(--muted);margin:7px 0}.controls{display:flex;gap:10px;margin-top:12px}input{min-width:0;flex:1;border:1px solid #b8c9cd;border-radius:7px;padding:11px 13px;background:white;color:var(--ink)}button{border:0;border-radius:7px;padding:10px 18px;background:var(--teal);color:white;cursor:pointer;font-weight:700}button.secondary{background:#eaf3f1;color:var(--teal)}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0 7px}.chip{border-radius:30px;background:#edf6f3;color:#116d61;font-size:12px;padding:4px 10px}.toolbar{display:flex;align-items:center;justify-content:space-between;margin:26px 0 14px;gap:15px;flex-wrap:wrap}.tabs{display:flex;gap:6px}.tabs button{background:transparent;color:var(--muted);padding:8px 15px}.tabs button[aria-selected=true]{background:var(--ink);color:white}.small{font-size:12px;color:var(--muted)}.layout{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(270px,1fr);gap:22px;align-items:start}.list{display:grid;gap:13px}.card{padding:22px;background:white;border:1px solid var(--line);border-radius:12px}.card .date{font-size:12px;color:var(--muted);margin-bottom:8px}.card h3{font-size:18px;line-height:1.55;margin:0 0 8px;letter-spacing:-.025em}.desc{font-size:14px;color:var(--muted);margin:8px 0 15px;overflow-wrap:anywhere}.source{font-size:13px;text-decoration:none;font-weight:700}.summary{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.summary p{font-size:14px;margin:5px 0 12px}.label{color:var(--teal);font-size:11px;font-weight:800}.review{background:#f4f7f6;border-radius:7px;padding:11px;font-size:13px}.side{background:#133c3b;color:#eef6f4;border:0}.side h2{font-size:21px}.side p{font-size:14px;color:#d2e3df}.side .small{color:#b6d2ca}.side hr{border:0;border-top:1px solid #38605b;margin:22px 0}.side ol{padding-left:20px;font-size:13px;line-height:2}.side button{background:#eff8f3;color:#17493f;width:100%;margin-top:16px}.status{font-size:13px;border:1px solid var(--line);background:#f7faf9;padding:12px 15px;border-radius:8px;margin-top:16px}.empty{padding:40px 24px;background:white;border:1px dashed #afc6c7;border-radius:12px;text-align:center}.warning{background:#fff5dc;border:1px solid #eed7a0;color:#74530f;padding:14px;border-radius:9px;margin-bottom:20px}footer{margin-top:34px;font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}.hidden{display:none!important}@media(max-width:760px){.wrap{padding:22px 17px 40px}.edition{display:none}.stats{gap:8px;grid-template-columns:1fr 1fr}.stat{padding:16px}.stat.time{grid-column:1/-1}.layout{grid-template-columns:1fr}.side{order:-1}.controls{flex-wrap:wrap}.controls input{flex-basis:100%}.panel{padding:19px}.card{padding:19px}.toolbar{align-items:flex-start}}
+.desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+</style>
+</head>
+<body><div class="wrap">
+<div class="top"><div class="brand"><i></i>ENERGY BRIEF</div><span class="edition">뉴스 브리핑 서비스 · 실습 완성 예시</span></div>
+<header><div class="eyebrow">POLICY & INDUSTRY WATCH</div><h1>우리 업무에 필요한 소식,<br>한곳에서 확인하세요.</h1><p>기후에너지환경부 보도자료에서 관심 키워드를 찾고, 원문과 함께 읽는 뉴스 브리핑입니다.</p></header>
+<div id="collection-warning" class="warning hidden" role="status"></div>
+<section class="stats" aria-label="수집 현황"><div class="stat"><span>수집한 전체 소식</span><strong id="total-count">0</strong> 건</div><div class="stat"><span>키워드와 일치하는 소식</span><strong id="interest-count">0</strong> 건</div><div class="stat time"><span>마지막 수집 시각 · 한국 시간</span><strong id="collected-at"></strong></div></section>
+<section class="panel"><h2><label for="keywords">관심 키워드</label></h2><p class="hint">쉼표로 구분해 입력하세요. 제목 또는 RSS 설명에 하나라도 포함되면 선택합니다.</p><form id="keyword-form" class="controls"><input id="keywords" autocomplete="off" placeholder="예: 보일러, 난방, 히트펌프"><button type="submit">키워드 적용</button><button class="secondary" id="reset" type="button">기본값</button></form><div id="chips" class="chips"></div><p class="hint">키워드 일치는 업무 관련성을 확정하는 판단이 아닙니다. 키워드는 이 브라우저에 저장하며, 파일 실행 환경에서는 저장이 제한될 수 있습니다.</p></section>
+<div class="toolbar"><div class="tabs" role="tablist" aria-label="뉴스 목록 선택"><button id="tab-all" role="tab" aria-selected="true" aria-controls="news-list">전체 소식</button><button id="tab-interest" role="tab" aria-selected="false" aria-controls="news-list">관심 소식</button></div><div id="visible-count" class="small" aria-live="polite"></div></div>
+<div class="layout"><section id="news-list" class="list" aria-label="뉴스 목록" role="tabpanel"></section><aside class="panel side"><div class="eyebrow" style="color:#9fd9c3">READ WITH CONTEXT</div><h2>관심 소식 살펴보기</h2><p id="briefing-message" aria-live="polite"></p><div id="briefing-info" class="small"></div><button id="copy" type="button">뉴스 목록 복사</button><div id="copy-status" class="small" role="status"></div><hr><h3 style="font-size:15px">원문을 함께 확인하세요</h3><ol><li>제목과 게시일을 확인합니다.</li><li>일치한 키워드와 설명을 확인합니다.</li><li>정책 조건·금액·기간은 원문에서 확인합니다.</li></ol><p class="small">키워드 일치는 업무 관련성을 확정하지 않습니다. 자세한 내용은 원문에서 확인하세요.</p></aside></div>
+<footer>이 화면은 저장된 수집 자료를 보여줍니다. 최신 소식은 수집·화면 생성 코드를 다시 실행해야 반영됩니다.<br>출처: <a href="https://www.mcee.go.kr/home/web/index.do?menuId=447" target="_blank" rel="noopener noreferrer">기후에너지환경부 RSS</a> · RSS는 최근 일부 게시물만 제공하며 전체 과거 자료를 의미하지 않습니다.</footer>
+</div><script id="news-data" type="application/json">__NEWS_DATA__</script>
+<script>
+'use strict';
+const DATA=JSON.parse(document.getElementById('news-data').textContent);
+const $=id=>document.getElementById(id);
+const STORAGE='energy-brief-keywords-v1';
+let keywords=[...DATA.keywords], mode='all';
+try{const saved=JSON.parse(localStorage.getItem(STORAGE));if(Array.isArray(saved)&&saved.every(x=>typeof x==='string'))keywords=saved;}catch{}
+const normalized=words=>[...new Set(words.map(x=>x.trim().toLowerCase()).filter(Boolean))].sort();
+const sameWords=(a,b)=>JSON.stringify(normalized(a))===JSON.stringify(normalized(b));
+function matches(item){const text=(item.title+' '+item.description).toLowerCase();return keywords.filter(x=>text.includes(x.toLowerCase()));}
+function dateText(value){if(!value)return '게시일 미제공';const d=new Date(value);return Number.isNaN(d.getTime())?value:new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).format(d);}
+function element(tag,cls,text){const node=document.createElement(tag);if(cls)node.className=cls;if(text!==undefined)node.textContent=text;return node;}
+function activeBriefing(){const b=DATA.briefing;return b&&b.status==='success'&&b.selection_id===DATA.selection_id&&sameWords(keywords,b.keywords);}
+function render(){
+ $('keywords').value=keywords.join(', ');
+ $('total-count').textContent=DATA.items.length;
+ const interest=DATA.items.filter(x=>matches(x).length);
+ $('interest-count').textContent=interest.length;
+ $('collected-at').textContent=dateText(DATA.collected_at);
+ $('chips').replaceChildren(...keywords.map(x=>element('span','chip',x)));
+ $('tab-all').setAttribute('aria-selected',String(mode==='all'));
+ $('tab-interest').setAttribute('aria-selected',String(mode==='interest'));
+ const rows=mode==='all'?DATA.items:interest;
+ $('visible-count').textContent=`${rows.length}건 표시 · 제목·RSS 설명 기준`;
+ const good=activeBriefing(), b=DATA.briefing;
+ const notes=new Map(good?b.items.map(x=>[x.id,x]):[]);
+ const fragment=document.createDocumentFragment();
+ for(const item of rows){
+  const card=element('article','card');
+  card.append(element('div','date',`기후에너지환경부 · ${dateText(item.published_at)}`),element('h3','',item.title));
+  const chips=element('div','chips');chips.append(...matches(item).map(x=>element('span','chip',x)));card.append(chips);
+  if(item.description)card.append(element('p','desc',item.description));
+  const link=element('a','source','원문 바로가기 ↗');
+  try{const url=new URL(item.url);if(['https:','http:'].includes(url.protocol)){link.href=url.href;link.target='_blank';link.rel='noopener noreferrer';card.append(link);}}catch{}
+  const note=notes.get(item.id);
+  if(note){const block=element('div','summary');block.append(element('div','label','AI 요약 · 제목·RSS 설명 기반'),element('p','',note.summary));if(note.work_note)block.append(element('div','review',`검토 참고 · ${note.work_note}`));card.append(block);}
+  fragment.append(card);
+ }
+ if(!rows.length){const box=element('div','empty');box.append(element('strong','', '현재 수집한 목록에 관심 키워드와 일치하는 소식이 없습니다.'),element('p','hint','전체 소식을 보거나 키워드를 바꿔 보세요.'));fragment.append(box);}
+ $('news-list').replaceChildren(fragment);
+ $('briefing-message').textContent='관심 키워드와 일치하는 소식을 확인하고 원문을 함께 읽어 보세요.';
+ $('briefing-info').textContent='화면의 키워드 변경은 저장된 뉴스 안에서만 적용됩니다.';
+ $('copy-status').textContent='';
+ if(DATA.collection_warning){$('collection-warning').classList.remove('hidden');$('collection-warning').textContent=DATA.collection_warning;}
+}
+function apply(){keywords=[...new Set($('keywords').value.split(',').map(x=>x.trim()).filter(Boolean))];try{localStorage.setItem(STORAGE,JSON.stringify(keywords));}catch{}render();}
+$('keyword-form').addEventListener('submit',event=>{event.preventDefault();apply();});
+$('reset').addEventListener('click',()=>{$('keywords').value=DATA.keywords.join(', ');apply();});
+$('tab-all').addEventListener('click',()=>{mode='all';render();});
+$('tab-interest').addEventListener('click',()=>{mode='interest';render();});
+document.querySelector('.tabs').addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();mode=mode==='all'?'interest':'all';render();$(mode==='all'?'tab-all':'tab-interest').focus();}});
+$('copy').addEventListener('click',async()=>{
+ const good=activeBriefing(), notes=new Map(good?DATA.briefing.items.map(x=>[x.id,x]):[]);
+ const rows=DATA.items.filter(x=>mode==='all'||matches(x).length);
+ if(!rows.length){$('copy-status').textContent='복사할 뉴스가 없습니다.';return;}
+ const text=rows.map(x=>{const n=notes.get(x.id);return `${x.title}\n${dateText(x.published_at)}\n${n?'AI 요약(제목·RSS 설명 기반): '+n.summary+'\n'+(n.work_note?'검토 참고: '+n.work_note+'\n':''):''}${x.url}`;}).join('\n\n');
+ try{await navigator.clipboard.writeText(text);$('copy-status').textContent=`${rows.length}건을 복사했습니다.`;}catch{const field=element('textarea');field.value=text;field.style.position='fixed';field.style.left='-9999px';document.body.append(field);field.select();const ok=document.execCommand('copy');field.remove();$('copy-status').textContent=ok?'복사했습니다.':'이 브라우저에서 복사가 제한됩니다. 원문 링크를 이용해 주세요.';}
+});
+render();
+</script></body></html>

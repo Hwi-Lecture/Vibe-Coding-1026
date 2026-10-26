@@ -1,0 +1,343 @@
+{
+  "as_of": "2026-10-23",
+  "collected_at": "2026-10-23T14:06:40.249095+09:00",
+  "status": "complete",
+  "request_count": 37,
+  "files": [
+    {
+      "path": "csv/지역코드.csv",
+      "endpoint": "areaCode.do",
+      "parameters": {},
+      "row_count": 16
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/전국_제품별.csv",
+      "endpoint": "dateAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/전국_상표별_제품별.csv",
+      "endpoint": "datePollAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022"
+      },
+      "row_count": 273
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/01_서울_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "01"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/02_경기_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "02"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/03_강원_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "03"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/04_충북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "04"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/05_충남_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "05"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/06_전북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "06"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/08_경북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "08"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/09_경남_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "09"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/10_부산_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "10"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/11_제주_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "11"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/14_대구_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "14"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/15_인천_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "15"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/17_대전_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "17"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/18_울산_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "18"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/19_세종_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "19"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-16_2026-10-22/지역별/20_전남광주_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261022",
+        "area": "20"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/전국_제품별.csv",
+      "endpoint": "dateAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/전국_상표별_제품별.csv",
+      "endpoint": "datePollAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015"
+      },
+      "row_count": 273
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/01_서울_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "01"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/02_경기_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "02"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/03_강원_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "03"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/04_충북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "04"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/05_충남_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "05"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/06_전북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "06"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/08_경북_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "08"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/09_경남_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "09"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/10_부산_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "10"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/11_제주_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "11"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/14_대구_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "14"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/15_인천_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "15"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/17_대전_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "17"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/18_울산_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "18"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/19_세종_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "19"
+      },
+      "row_count": 35
+    },
+    {
+      "path": "csv/2026-10-09_2026-10-15/지역별/20_전남광주_제품별.csv",
+      "endpoint": "dateAreaAvgRecentPrice.do",
+      "parameters": {
+        "date": "20261015",
+        "area": "20"
+      },
+      "row_count": 35
+    }
+  ],
+  "warnings": [],
+  "recent": {
+    "start": "2026-10-16",
+    "end": "2026-10-22"
+  },
+  "previous": {
+    "start": "2026-10-09",
+    "end": "2026-10-15"
+  }
+}
