@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>오늘의 업무</title>
+<style>body{font-family:system-ui,sans-serif;background:#f3f5fa;color:#202c42;margin:0;padding:60px 20px}.box{max-width:650px;margin:auto;background:white;padding:32px;border-radius:16px;box-shadow:0 8px 28px #253a5214}h1{margin-top:0}.error{background:#fff1f0;border:1px solid #f2b7b2;color:#a92c27;padding:18px;border-radius:8px;white-space:pre-wrap}li{padding:12px;border-bottom:1px solid #eee}</style></head>
+<body><main class="box"><h1>📋 오늘의 업무</h1><p>오늘 해야 할 업무를 확인해 보세요.</p><div id="content">업무 목록을 불러오는 중...</div></main>
+<script>
+const tasks = [{title:'주간 회의 자료 정리'}, {title:'업무 일정 확인'}, {title:'보고서 검토'}];
+try {
+  const list = document.createElement('ul');
+  taskList.forEach(task => { const li = document.createElement('li'); li.textContent = task.title; list.appendChild(li); });
+  document.getElementById('content').replaceChildren(list);
+} catch (error) {
+  console.error(error);
+  document.getElementById('content').innerHTML = '<div class="error"><strong>오류가 발생해 업무 목록을 표시할 수 없습니다.</strong><br>' + error.name + ': ' + error.message + '</div>';
+}
+</script></body></html>
